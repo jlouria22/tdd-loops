@@ -12,6 +12,11 @@
  */
 export function echo(word, n) {
   // TODO
+  let result = "";
+  for (let i = 0; i < n; i++) {
+    result += word;
+  }
+  return result;
 }
 
 /**
@@ -28,6 +33,15 @@ export function echo(word, n) {
  */
 export function echoWithSpace(word, n) {
   // TODO
+  if (word === "") return "";
+  let result = "";
+  for (let i = 0; i < n; i++) {
+    result += word;
+    if (i < n - 1) {
+      result += " ";
+    }
+  }
+  return result;
 }
 
 /**
@@ -43,6 +57,11 @@ export function echoWithSpace(word, n) {
  */
 export function sumTo(n) {
   // TODO
+  let total = 0;
+  for (let i = 1; i <= n; i++) {
+    total += i;
+  }
+  return total;
 }
 
 /**
@@ -59,6 +78,11 @@ export function sumTo(n) {
  */
 export function sumFromTo(a, z) {
   // TODO
+  let total = 0;
+  for (let i = a; i <= z; i++) {
+    total += i;
+  }
+  return total;
 }
 
 /**
@@ -74,6 +98,9 @@ export function sumFromTo(a, z) {
  */
 export function countdown(n) {
   // TODO
+  for (let i = n; i >= 1; i--) {
+    console.log(i);
+  }
 }
 
 /**
@@ -89,6 +116,11 @@ export function countdown(n) {
  */
 export function sumOddsToN(n) {
   // TODO
+  let total = 0;
+  for (let i = 1; i <= n; i += 2) {
+    total += i;
+  }
+  return total;
 }
 
 /**
@@ -109,6 +141,14 @@ export function sumOddsToN(n) {
  */
 export function getGrowthTime(start, target) {
   // TODO
+  if (start <= 0) return undefined;
+  let minutes = 0;
+  let size = start;
+  while (size < target) {
+    size *= 2;
+    minutes += 20;
+  }
+  return minutes;
 }
 
 /**
@@ -129,6 +169,14 @@ export function getGrowthTime(start, target) {
  */
 export function getCompoundTime(start, rate, target) {
   // TODO
+  if (start <= 0 || rate <= 0) return undefined;
+  let years = 0;
+  let amount = start;
+  while (amount < target) {
+    amount *= 1 + rate;
+    years++;
+  }
+  return years;
 }
 
 /**
@@ -154,9 +202,20 @@ export function getCompoundTime(start, rate, target) {
  * moveWater(7, 3); // 1
  */
 export function moveWater(colander, bucket) {
-  // TODO
+  if (colander <= 0) return undefined;
+  let trips = 0;
+  let filled = 0;
+  let capacity = colander;
+  while (filled < bucket) {
+    if (capacity === 1) {
+      return trips + (bucket - filled);
+    }
+    filled += capacity;
+    trips++;
+    capacity--;
+  }
+  return trips;
 }
-
 /**
  * This is a classic interview question! :)
  * Log numbers from 1 to n to the console.
@@ -175,4 +234,15 @@ export function moveWater(colander, bucket) {
  */
 export function fizzbuzz(n) {
   // TODO
+  for (let i = 1; i <= n; i++) {
+    if (i % 15 === 0) {
+      console.log("fizzbuzz");
+    } else if (i % 3 === 0) {
+      console.log("fizz");
+    } else if (i % 5 === 0) {
+      console.log("buzz");
+    } else {
+      console.log(i);
+    }
+  }
 }
